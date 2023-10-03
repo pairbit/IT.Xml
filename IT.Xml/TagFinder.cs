@@ -704,7 +704,7 @@ public class TagFinder : ITagFinder
         return -1;
     }
 
-    //public Int32 LastOpen(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, out Int32 end, StringComparison comparison)
+    //public Range LastOpenRange(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison)
     //{
     //    var namelen = name.Length;
     //    var nslen = ns.Length;

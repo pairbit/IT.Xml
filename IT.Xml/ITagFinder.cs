@@ -4,59 +4,33 @@ namespace IT.Xml;
 
 public interface ITagFinder
 {
-    //Boolean Contains(ReadOnlySpan<Char> chars, String name, String? ns, StringComparison comparison = StringComparison.Ordinal);
+    /// <summary>
+    /// Данный метод ищет только начало открывающегося тега, последний '&gt;' не ищет!!!
+    /// </summary>
+    Int32 FirstOpen(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
-    //Boolean Contains(ReadOnlySpan<Char> chars, String name, StringComparison comparison = StringComparison.Ordinal);
+    //Range FirstOpenRange(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
-    //Range First(ReadOnlySpan<Char> chars, String name, String? ns, StringComparison comparison = StringComparison.Ordinal);
-
-    //Range First(ReadOnlySpan<Char> chars, String name, StringComparison comparison = StringComparison.Ordinal);
-
-    Int32 FirstClose(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
-
-    Range FirstInner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
-
-    //Int32 FirstClose(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, out ReadOnlyMemory<Char>? ns, StringComparison comparison = StringComparison.Ordinal);
-
-    //Int32 FirstClose(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, StringComparison comparison = StringComparison.Ordinal);
-
-    Range Inner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
-
-    Range Inner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, StringComparison comparison);
-
-    ReadOnlySpan<Char> Inner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, out Range range, StringComparison comparison);
-
-    Range Outer(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
-
-    Range Outer(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, StringComparison comparison);
-
-    ReadOnlySpan<Char> Outer(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, out Range range, StringComparison comparison);
+    Int32 FirstClose(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
     /// <summary>
     /// Данный метод ищет только начало открывающегося тега, последний '&gt;' не ищет!!!
     /// </summary>
-    Int32 FirstOpen(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
+    Int32 LastOpen(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
-    Range LastInner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
+    //Range LastOpenRange(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
-    Range LastInner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, StringComparison comparison);
+    Int32 LastClose(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
-    ReadOnlySpan<Char> LastInner(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, out Range range, StringComparison comparison);
+    Int32 LastClose(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, StringComparison comparison);
 
-    Range LastOuter(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
+    ReadOnlySpan<char> LastClose(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, out Int32 index, StringComparison comparison);
 
-    Range LastOuter(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, StringComparison comparison);
+    //ReadOnlySpan<char> Attr(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, ReadOnlySpan<char> ns, StringComparison comparison);
 
-    ReadOnlySpan<Char> LastOuter(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, out Range range, StringComparison comparison);
+    //ReadOnlySpan<char> Attr(ReadOnlySpan<char> chars, ReadOnlySpan<char> name, out Range value, StringComparison comparison);
 
-    /// <summary>
-    /// Данный метод ищет только начало открывающегося тега, последний '&gt;' не ищет!!!
-    /// </summary>
-    Int32 LastOpen(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
+    //TagAttributeName AttrByVal(ReadOnlySpan<char> chars, ReadOnlySpan<char> value, StringComparison comparison);
 
-    Int32 LastClose(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, ReadOnlySpan<Char> ns, StringComparison comparison);
-
-    Int32 LastClose(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, StringComparison comparison);
-
-    ReadOnlySpan<Char> LastClose(ReadOnlySpan<Char> chars, ReadOnlySpan<Char> name, out Int32 index, StringComparison comparison);
+    //TagAttribute[] Attrs(ReadOnlySpan<char> chars, StringComparison comparison);
 }
