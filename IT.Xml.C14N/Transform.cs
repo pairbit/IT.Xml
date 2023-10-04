@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
 using System.IO;
-using System.Xml;
 using System.Security.Cryptography;
+using System.Xml;
 
 namespace IT.Xml.C14N;
 
@@ -14,8 +13,6 @@ public abstract class Transform
     private string _baseUri;
     internal XmlResolver _xmlResolver;
     private bool _bResolverSet;
-    private Hashtable _propagatedNamespaces;
-    private XmlElement _context;
 
     internal string BaseURI
     {
