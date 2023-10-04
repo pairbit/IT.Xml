@@ -50,9 +50,7 @@ public class TransformTest
     {
         using var hashAlg = new Gost_R3411_2012_256_HashAlgorithm();
 
-        var stream = new MemoryStream();
-        stream.Write(_dataBytes);
-        stream.Position = 0;
+        var stream = new MemoryStream(_dataBytes);
 
         var hash1 = IT_TransformC14(stream, hashAlg);
 
